@@ -8,6 +8,10 @@ const formData = {};
 const form = document.querySelector('.feedback-form');
 const textarea = document.querySelector('textarea');
 const input = document.querySelector('input');
+const jsonParse = JSON.parse(localStorage.getItem('feedback-form-state'));
+for (let key in jsonParse) {
+  formData[key] = jsonParse[key];
+}
 
 form.addEventListener('submit', onFormSubmit);
 form.addEventListener('input', throttle(onMsgInput, 500));
